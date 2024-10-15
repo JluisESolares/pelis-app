@@ -1,0 +1,68 @@
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.form {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.form input[type="text"] {
+  margin: 0;
+  flex-grow: 1;
+}
+
+.form button {
+  margin: 0;
+  flex-basis: 150px
+}
+
+main {
+  width: 100%;
+}
+
+main p {
+  text-align: center;
+}
+
+main ul {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: minmax(400px, auto);
+  gap: 16px;
+  padding: 0;
+}
+
+main ul li {
+  list-style-type: none;
+}
+
+main ul li img {
+  border-radius: 10px;
+}
+
+main ul li h3 {
+  margin: 0;
+  max-height: 30px;
+  overflow: scroll;
+  text-overflow: ellipsis;
+}
+
