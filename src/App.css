@@ -1,4 +1,4 @@
-#root {
+/* #root {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -7,6 +7,7 @@
 }
 
 header {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,8 +62,15 @@ main ul li img {
 
 main ul li h3 {
   margin: 0;
-  max-height: 30px;
-  overflow: scroll;
+  max-height: 40px;
+  overflow: hidden;
   text-overflow: ellipsis;
+  text-align: center;
 }
 
+header p {
+  position: absolute;
+  bottom: -45px;
+  text-align: center
+}
+ */
