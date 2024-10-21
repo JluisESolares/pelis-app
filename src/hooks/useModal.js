@@ -1,20 +1,29 @@
-import { useRef, useState } from 'react'
+import { useRef, useEffect, useState } from 'react';
 
-export function useModal(){
+export function useModal({ contentData }) {
+  const dialogRef = useRef();
+  const [isOpen, setIsOpen] = useState(false)
 
-  const [isOpenModal, setIsOpenModal] = useState(false)
-  const refModal = useRef()
 
-  const openModal = () => refModal.current.showModal()
+  useEffect(() => {
+    if (Object.keys(contentData).length > 0) {
+      setIsOpen(true)
+      dialogRef.current.showModal();
+    }
+  }, [contentData]);
 
-  const closeModal = () => refModal.current.close()
+  const closeModal = () => {
+    dialogRef.current.close();
+  };
+
+  const handleClose = () => {
+    setIsOpen(false)
+  }
 
   return {
-    refModal,
-    openModal,
+    dialogRef,
     closeModal,
-    isOpenModal,
-    setIsOpenModal
-  }
+    isOpen,
+    handleClose,
+  };
 }
-

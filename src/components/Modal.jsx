@@ -1,13 +1,25 @@
+import { createPortal } from 'react-dom';
+import { useModal } from '../hooks/useModal';
 
-import { createPortal } from 'react-dom'
+export function Modal({ contentData, content }) {
+  const { 
+    dialogRef,
+    closeModal, 
+    isOpen, 
+    handleClose,
+  } = useModal({ contentData });
 
-export function Modal({content, refModal, setIsOpenModal}){
-
-  return createPortal((
-    <dialog ref={refModal}
-      onClose={() => setIsOpenModal(false)}
-    >
-      {content()}
-    </dialog>
-  ), document.getElementById('modal'))
+  return createPortal(
+    <dialog ref={dialogRef} onClose={handleClose}>
+      <button onClick={closeModal} aria-label="Cerrar">
+        X
+      </button>
+      {
+        isOpen
+          ? content(contentData)
+          : null
+      }
+    </dialog>,
+    document.getElementById('modal')
+  )
 }

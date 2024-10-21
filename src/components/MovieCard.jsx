@@ -2,7 +2,7 @@ import { useState } from 'react'
 export function MovieCard({movie, show}){
   const [imgLoaded, setImageLoaded] = useState(false)
 
-  const handlerLoaded = () => {
+  const handleLoaded = () => {
     setImageLoaded(true)
   }
 
@@ -19,7 +19,7 @@ export function MovieCard({movie, show}){
         className="w-full object-contain rounded-md" 
         src={movie.poster} 
         alt={movie.title}
-        onLoad={handlerLoaded}
+        onLoad={handleLoaded}
         onClick={() => show(movie)}
       />
     </li>

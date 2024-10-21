@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useMovies } from './hooks/useMovies'
 import { useSearch } from './hooks/useSearch'
-import { useModal } from './hooks/useModal'
+//import { useModal } from './hooks/useModal'
 
 import { Modal } from './components/Modal'
 import { MainGrid } from './components/MainGrid'
@@ -13,8 +13,8 @@ import './App.css'
 function App() {
 
   const [sort, setSort] = useState(false)
-  const [detailsMovie, setDetailsMovie] = useState({})
-  
+  const [movieDetails, setMovieDetails] = useState({})
+
   const { 
     search,
     error,
@@ -27,14 +27,6 @@ function App() {
     loading, 
     error: searchError
   } = useMovies({search, sort})
-
-  const {
-    refModal,
-    openModal,
-    closeModal,
-    isOpenModal,
-    setIsOpenModal
-  } = useModal()
 
   const handlerChange = (ev) => {
     if(ev.target.value.startsWith(' ')) return
@@ -51,9 +43,7 @@ function App() {
   }
 
   const showModalInfo = (info) => {
-    setIsOpenModal(true)
-    setDetailsMovie(info)
-    openModal()
+    setMovieDetails(info)
   }
 
   return (
@@ -81,15 +71,8 @@ function App() {
         { error && <p style={{color: 'red'}}>{error}</p>}
       </header>
       <Modal
-        setIsOpenModal={setIsOpenModal} 
-        refModal={refModal} 
-        content={() => 
-          <MovieDetails 
-            detailsMovie={detailsMovie} 
-            close={closeModal}
-            isOpenModal={isOpenModal}
-          />}
-      />
+        contentData={movieDetails}
+        content={(data) => <MovieDetails movieDetails={data} />} />
       <MainGrid
         loading={loading}
         searchError={searchError}

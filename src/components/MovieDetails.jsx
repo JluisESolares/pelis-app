@@ -1,12 +1,14 @@
-export function MovieDetails({detailsMovie, close, isOpenModal}){
-  const renderMovie = isOpenModal ? detailsMovie : {}
+import { useState } from 'react'
+export function MovieDetails({ movieDetails }) {
+  const [load, setLoad] = useState(false)
+  
   return (
-    <div className="">
-      <button onClick={close}>Cerrar Modal</button>
-      <h3>{renderMovie?.title}</h3>
+    <div className={`transition-opacity duration-300 ease-in ${ load ? 'opacity-100' : 'opacity-0'}`}>
+      <h3>{movieDetails?.title}</h3>
       <img 
-        src={renderMovie?.poster}
+        src={movieDetails?.poster} 
+        onLoad={() => setLoad(true)}
       />
     </div>
-  )
+  );
 }
