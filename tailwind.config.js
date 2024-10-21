@@ -20,10 +20,20 @@ export default {
         fadeIn: 'fadeIn .3s forwards',
       },
       gridTemplateColumns: {
-        'pelis-grid' : 'repeat(auto-fit, minmax(200px, 1fr))'
+        'pelis-grid' : 'repeat(auto-fit, minmax(200px, 1fr))',
+        'pelis-grid-large' : 'repeat(auto-fit, minmax(300px, 1fr))',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addComponents, theme}) {
+      addComponents({
+        'dialog::backdrop' : {
+          'background-image' : 'linear-gradient(45deg, magenta, rebeccapurple, dodgerblue, green)',
+          'opacity' : '0.75',
+        },
+      })
+    }
+  ],
 }
 
