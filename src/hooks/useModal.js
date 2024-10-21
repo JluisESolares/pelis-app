@@ -17,7 +17,9 @@ export function useModal({ contentData }) {
   };
 
   const handleClose = () => {
-    setIsOpen(false)
+    setTimeout(() => {
+      setIsOpen(false)
+    }, 300)
   }
 
   return {

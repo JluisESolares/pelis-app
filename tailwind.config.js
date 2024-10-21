@@ -26,11 +26,37 @@ export default {
     },
   },
   plugins: [
-    function({ addComponents, theme}) {
+    function({ addComponents }) {
       addComponents({
+        /* dialog : {
+          opacity: 0,
+          transform: 'translateY(0)',
+          transition: 
+          'opacity 0.3s ease-out, '
+          + 'transform 0.3s ease-out, '
+          + 'overlay 0.3s ease-out allow-discrete, '
+          + 'display 0.3s ease-out allow-discrete'
+        },
+        'dialog[open]' : {
+          opacity: 1,
+          transform: 'translateY(25px)',
+          '@starting-style' : {
+            opacity : 0,
+            transform: 'translateY(0)'
+          },
+        }, */
         'dialog::backdrop' : {
-          'background-image' : 'linear-gradient(45deg, magenta, rebeccapurple, dodgerblue, green)',
-          'opacity' : '0.75',
+          'background-color' : 'rgb(0 0 0 / 0%)',
+          transition : 
+            'display 0.3s allow-discrete, '
+            + 'overlay 0.3s allow-discrete, '
+            + 'background-color 0.3s'
+        },
+        'dialog[open]::backdrop' : {
+          'background-color' : 'rgb(0 0 0 / 40%)',
+          '@starting-style' : {
+            'background-color' : 'rgb(0 0 0 / 0%)',
+          }
         },
       })
     }
