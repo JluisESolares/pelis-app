@@ -19,16 +19,7 @@ export function useSearch(){
       setError('No puede estar en blanco')
       return
     }
-    
-    if(search.match(/^\d+$/)) {
-      setError('No se puede buscar una pelicula con un numero')
-    }
-    
-    if(search.length < 3) {
-      setError('Tiene que tener almenos 3 caracteres')
-      return
-    }
-    
+     
     setError(null)
   },[search])
 

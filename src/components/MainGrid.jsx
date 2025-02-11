@@ -1,4 +1,3 @@
-
 function Movies({movies, movieCard}) {
   const hasMovies = movies?.length > 0
   return (
