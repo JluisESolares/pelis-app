@@ -9,11 +9,13 @@ export function useModal({ contentData }) {
     if (Object.keys(contentData).length > 0) {
       setIsOpen(true)
       dialogRef.current.showModal();
+      document.body.style.overflow='hidden';
     }
   }, [contentData]);
 
   const closeModal = () => {
     dialogRef.current.close();
+    document.body.style.overflow='auto';
   };
 
   const handleClose = () => {

@@ -15,7 +15,7 @@ export function Modal({ contentData, content }) {
     <dialog 
       ref={dialogRef} 
       onClose={handleClose}
-      className='w-full max-w-7xl p-4 relative bg-zinc-900 text-white'
+      className='container xl:max-w-screen-xl p-4 bg-zinc-900 text-white'
     >
       <button 
         onClick={closeModal} 

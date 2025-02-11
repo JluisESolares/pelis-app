@@ -17,12 +17,12 @@ export function MovieDetails({ movieDetails }) {
       <h3 className='text-center text-xl font-bold mb-4'>{movieDetails?.title}</h3>
       <div className='w-full flex flex-col gap-8 sm:flex-row md:flex-col'>
         <div className='basis-1/2 md:hidden md:basis-0'>
-         {/*  <img
+          <img
             src={movieDetails?.poster}
             onLoad={() => setLoad(true)}
             alt={movieDetails?.title}
             className='w-full object-fit rounded-md'
-          /> */}
+          />
         </div>
         <div className='hidden md:block'>
           <img

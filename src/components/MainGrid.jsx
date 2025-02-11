@@ -15,10 +15,10 @@ export function MainGrid({movies, movieCard, loading, searchError}){
  
 
   return (
-    <main className='max-w-7xl mx-auto'>
+    <div className='container mx-auto max-w-screen-xl'>
       {loading && !searchError ? <p className="text-center">Cargando....</p> : null}
       {!loading && searchError ? <p className="text-center">{searchError}</p> : null}
       {!loading && !searchError ? <Movies movies={movies} movieCard={movieCard}/> : null}
-    </main>
+    </div>
   )
 }
