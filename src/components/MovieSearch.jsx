@@ -31,7 +31,7 @@ export function MovieSearch({
             checked={sort}
             onChange={handlerSort}
           />
-          <button className="-order-1 bg-emerald-950 px-4 py-2 rounded-md flex-grow">
+          <button className="-order-1 bg-indigo-800 px-4 py-2 rounded-md flex-grow">
             Search
           </button>
         </div>
